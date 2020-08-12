@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+		<meta name="viewport"
+		      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>清单应用</title>
+    <link rel="stylesheet" href="lib/normal.css">
+    <link rel="stylesheet" href="css/main.css">
+
+</head>
+
+<body>
+    <div id="main">
+        <div class="navbar">
+            <h1>我的日常清单</h1>
+        </div>
+        <div class="header">
+            <h3>Just Do It</h3>
+        </div>
+        <form @submit.prevent="merge" id="task-from">
+            <div class="wrap">
+                <input v-model="current.title" id="task-input" type="text" autocomplete="off">
+                <div v-if="current.id" class="detail">
+                    <textarea v-model="current.desc"></textarea>
+                    <input  v-model="current.alert_at" type="datetime-local">
+                </div>
+                <button type="submit" class="submit-todo">提交</button>
+            </div>
+        </form>
+        <div class="task-list">
+            <div class="wrap">
+                <span class="doit">待完成</span>
+                <task :todo="todo" v-if="!todo.completed" v-for="(todo,index) in list">
+
+                </task>
+
+            </div>
+        </div>
+        <div class="task-list">
+            <div class="wrap">
+                <span class="doit">已完成</span>
+                <div v-if="todo.completed" v-for="(todo,index) in list" class="item compelted">
+                    <button @click="toggle_compelte(todo.id)" class="todo-button">/</button>
+                    <span class="title-bottom">{{todo.title}}</span>
+                    <button @click="remove(todo.id)" class="fr">删</button>
+                    <button @click="toggle_detail(todo.id)" class="fr">详</button>
+                    <div v-if="todo.show_detail" class="detail">
+                        <span class="desc-sp">{{todo.desc || '暂无详情'}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <audio id="alert-sound" controls src="sound/yoho.mp3"></audio>
+
+<template id="task-tpl">
+    <div class="item">
+        <button @click="action('toggle_compelte', todo.id)" class="todo-top">！</button>
+        <span class="title-top">{{todo.title}}</span>
+        <button @click="action('remove', todo.id)" class="fr">删</button>
+        <button @click="action('set_current', todo)" class="fr">改</button>
+        <button @click="action('toggle_detail', todo.id)" class="fr">详</button>
+        <div v-if="todo.show_detail" class="detail">
+            <span class="desc-sp">{{todo.desc || '暂无详情'}}</span>
+        </div>
+    </div>
+</template>
+    <script src="lib/vue.js"></script>
+    <script src="js/myStorage.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

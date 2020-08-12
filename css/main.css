@@ -1,0 +1,129 @@
+*{
+    background: rgba(0, 0, 0, 0);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+}
+#task-input {
+    display: block;
+    width: 100%;
+    height: 38px;
+    box-shadow: 2px 1px 1px 0px #ccc;
+}
+input,button,textarea {
+
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+
+}
+textarea {
+    width: 270px;
+    height: 120px;
+}
+.submit-todo {
+    border-radius: 3px;
+    background-color: #857bff;
+    color: #fff;
+}
+button {
+    border-radius: 50%;
+}
+.wrap {
+    max-width: 500px;
+    margin: 0 20px;
+}
+.navbar,.header {
+    text-align: center;
+}
+.navbar {
+    background: #ff5849;
+    color: #fff;
+    padding: 10px 0;
+}
+.navbar h1 {
+    font-size: 24px;
+    margin: 0;
+}
+.header {
+    padding: 0px 0;
+    color: #555;
+    font-size: 18px;
+}
+#alert-sound {
+    display: none;
+}
+.task-list .doit {
+    margin-top: 10px;
+}
+.todo-top,.todo-button {
+    width: 30px;
+    height: 30px;
+    /*border: none;*/
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+}
+.todo-button {
+    background-color: #abefb0;
+}
+.todo-button:hover {
+    background-color: #fda0a0;
+}
+.todo-top {
+    background-color: #fda0a0;
+}
+.todo-top:hover {
+    background-color: #abefb0;
+}
+.did-button {
+    background-color: #ccc;
+}
+.task-list .item {
+    margin-top:10px;
+		padding: 0 10px;
+}
+.task-list .item:hover {
+    background:rgba(0,0,0,0.1);
+}
+span.doit {
+    font-size: 18px;
+    color: #f26161;
+    padding-bottom: 10px;
+}
+.task-list .item {
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background: rgba(160, 160, 160, 0.1);
+    line-height:3;
+}
+.title-top,.title-bottom {
+    font-size: 18px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.title-top {
+    color: #000;
+}
+.title-bottom {
+    color: #8c9fab;
+    text-decoration:line-through;
+}
+.fr {
+    float: right;
+    color: #9a9a9a;
+    font-size: 14px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+.fr:hover {
+    background-color: rgba(160, 160, 160, 0.2);
+}
+.desc-sp {
+    color: #555555;
+    font-size: 14px;
+    padding-left: 50px;
+
+}
